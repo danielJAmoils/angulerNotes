@@ -8,8 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   text = 'intro2angular'; 
 
-  updateValue(e){
-    this.text = e.target.value
-    console.log(e.target.value)
-  }
 }
