@@ -1,3 +1,3 @@
-<input type="text" value="{{myVariable}}" [disabled]="myDisabledValue"/><!--disabling the input will only change if you bind the value with []-->
+<input type="text" [value]="text" (input)="updateValue($event)"/>
 
-<button (click)="callMyFunction()">Hey there</button>
+{{text}}

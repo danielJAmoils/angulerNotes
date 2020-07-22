@@ -6,14 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  myVariable = 'intro2angular';
-  myDisabledValue = false
-  constructor(){
-    
-  }
+  text = 'intro2angular'; 
 
-  callMyFunction(){
-    this.myDisabledValue = !this.myDisabledValue
-    console.log("function called")
+  updateValue(e){
+    this.text = e.target.value
+    console.log(e.target.value)
   }
 }
