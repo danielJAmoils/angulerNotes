@@ -18,6 +18,6 @@ export class RecordsService {
   constructor(private http:HttpClient) { }
 
   getData(){
-    return this.http.get<myData>('http://localhost:1234/file.php')//host server by cd test and php -S localhost:1234
+    return this.http.get<myData>('/api/file.php')//host server by cd test and php -S localhost:1234
   }
 }
