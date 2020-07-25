@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../auth.service'
 
 @Component({
   selector: 'app-login',
@@ -7,14 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private Auth: AuthService) { }
 
   ngOnInit(): void {
   }
 
   loginUser(event){
     event.preventDefault()
-    console.log(event)
+
+    const target = event.target
+    const username:string = target.querySelector('#username').value
+    const password:string = target.querySelector('#password').value
+
+    this.Auth.getUserDetails(username, password).subscribe(data => {
+      if(data.success){
+        //redirect the person to /admin
+      }else{
+        window.alert(data.message)
+      }
+    })
+
+    console.log(username, password)
   }
 
 }
