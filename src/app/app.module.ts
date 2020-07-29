@@ -9,6 +9,7 @@ import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
 import {AuthGuard} from './auth.guard'
 import { AuthService } from './auth.service';
+import {UserService} from './user.service'
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { AuthService } from './auth.service';
       }
     ])
   ],
-  providers: [AuthService, AuthGuard],//makes service available to all components 
+  providers: [AuthService, AuthGuard, UserService],//makes service available to all components 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
