@@ -9,7 +9,8 @@ import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
 import {AuthGuard} from './auth.guard'
 import { AuthService } from './auth.service';
-import {UserService} from './user.service'
+import {UserService} from './user.service';
+import { LogoutComponent } from './logout/logout.component'
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {UserService} from './user.service'
     LoginComponent,
     AdminComponent,
     HomeComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,10 @@ import {UserService} from './user.service'
         path: 'admin',
         component: AdminComponent,
         canActivate: [AuthGuard]
+      },
+      {
+        path: 'logout',
+        component: LogoutComponent
       },
       {
         path: '',
