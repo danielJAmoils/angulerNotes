@@ -7,6 +7,10 @@ interface response {
   secret?: string
 }
 
+interface registerResponse {
+  success:boolean
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -27,6 +31,13 @@ export class AuthService {
   getUserDetails(username:string, password:string){
     //post these details to API server return user info if correct
     return this.http.post<response>('/api/auth.php', {
+      username,
+      password
+    })
+  }
+
+  registerUser(username:string, password:string){
+    return this.http.post<registerResponse>('/api/register', {
       username,
       password
     })
