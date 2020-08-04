@@ -5,7 +5,6 @@ import {RouterModule} from '@angular/router'
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
 import {AuthGuard} from './auth.guard'
 import { AuthService } from './auth.service';
@@ -18,7 +17,6 @@ import { RegisterComponent } from './register/register.component'
   declarations: [
     AppComponent,
     LoginComponent,
-    AdminComponent,
     HomeComponent,
     LogoutComponent,
     DashboardComponent,
@@ -33,17 +31,13 @@ import { RegisterComponent } from './register/register.component'
         component: LoginComponent
       },
       {
-        path: 'admin',
-        component: AdminComponent,
-        canActivate: [AuthGuard]
-      },
-      {
         path: 'logout',
         component: LogoutComponent
       },
       {
         path: 'dashboard',
-        component: DashboardComponent
+        component: DashboardComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'register',
