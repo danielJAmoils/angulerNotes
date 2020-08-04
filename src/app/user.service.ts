@@ -16,6 +16,11 @@ interface logoutStatus {
   success: boolean
 }
 
+interface quoteStatus {
+  success: boolean,
+  message?: string
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,6 +30,12 @@ export class UserService {
 
   getData(){
     return this.http.get<myData>('/api/data')
+  }
+
+  updateQuote(value){
+    return this.http.post<quoteStatus>('/api/quote', {
+      value
+    })
   }
 
   isLoggedIn(): Observable<isLoggedIn>{

@@ -25,4 +25,15 @@ export class DashboardComponent implements OnInit {
   })
   }
 
+  updateQuote(event){
+    const value = event.target.parentNode.querySelector('#myQuote').value
+    this.user.updateQuote(value).subscribe(data => {
+      if(data.success){
+        alert('Your quote was updated')
+      }else{
+        alert("There was a problem updating your quote")
+      }
+    })
+  }
+
 }
