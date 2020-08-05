@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http'
 import {RouterModule} from '@angular/router'
+import { StoreModule } from '@ngrx/store'
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -11,7 +12,10 @@ import { AuthService } from './auth.service';
 import {UserService} from './user.service';
 import { LogoutComponent } from './logout/logout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { RegisterComponent } from './register/register.component'
+import { RegisterComponent } from './register/register.component';
+import { HeaderComponent } from './header/header.component'
+
+import {reducers} from './reducers'
 
 @NgModule({
   declarations: [
@@ -21,10 +25,17 @@ import { RegisterComponent } from './register/register.component'
     LogoutComponent,
     DashboardComponent,
     RegisterComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    StoreModule.forRoot(reducers, {
+      initialState: {
+        greetingMessage: "Hello Guest",
+        logout: true
+      }
+    }),
     RouterModule.forRoot([
       {
         path: 'login',
