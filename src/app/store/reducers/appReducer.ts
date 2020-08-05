@@ -1,7 +1,8 @@
 import {ACTION_LOGOUT, ACTION_LOGIN} from '../actions/appActions'
 
 export interface appReducerState {
-    login: boolean
+    login: boolean,
+    user?: string
 }
 
 const initialState:appReducerState = {
