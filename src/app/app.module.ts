@@ -4,6 +4,8 @@ import {HttpClientModule} from '@angular/common/http'
 import {RouterModule} from '@angular/router'
 import { StoreModule } from '@ngrx/store'
 
+import {reducers} from './store/reducers'
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -15,7 +17,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './header/header.component'
 
-import {reducers} from './reducers'
 
 @NgModule({
   declarations: [
@@ -30,12 +31,7 @@ import {reducers} from './reducers'
   imports: [
     BrowserModule,
     HttpClientModule,
-    StoreModule.forRoot(reducers, {
-      initialState: {
-        greetingMessage: "Hello Guest",
-        logout: true
-      }
-    }),
+    StoreModule.forRoot(reducers, {}),
     RouterModule.forRoot([
       {
         path: 'login',

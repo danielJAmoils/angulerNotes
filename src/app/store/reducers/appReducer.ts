@@ -1,6 +1,6 @@
 import {ACTION_LOGOUT, ACTION_LOGIN} from '../actions/appActions'
 
-interface appReducerState {
+export interface appReducerState {
     login: boolean
 }
 
